@@ -22,7 +22,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         v.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]
     end
     #, type: "nfs"
-    config.vm.synced_folder ".", "/home/vagrant/code"
+    config.vm.synced_folder ".", "/home/vagrant/code", type: "nfs"
 
     if File.exist? aliasesPath then
         config.vm.provision "file", source: aliasesPath, destination: "/tmp/bash_aliases"
